@@ -145,13 +145,28 @@ extension MarsRoverPhotoViewController: UICollectionViewDataSource {
                 collectionView.dequeueReusableCell(withReuseIdentifier: marsRoverPhotoCellId, for: indexPath)
                 as? MarsRoverPhotoControllerViewCell else { return UICollectionViewCell()}
         
-        ImageLoader.shared.loadImageFromData(url: arrayOfImageUrl[indexPath.row]) { image in
-            DispatchQueue.main.async {
-                UIView.animate(withDuration: 1.0, animations: {
-                    cell.photoImageView.frame = cell.frame
-                })
-                    
-                cell.photoImageView.image = image
+        //        ImageLoader.shared.loadImageFromData(url: arrayOfImageUrl[indexPath.row]) { image in
+        //            DispatchQueue.main.async {
+        //                UIView.animate(withDuration: 1.0, animations: {
+        //                    cell.photoImageView.frame = cell.frame
+        //                })
+        //
+        //                cell.photoImageView.image = image
+        //            }
+        //        }
+
+        AF.request(self.arrayOfImageUrl[indexPath.row]).responseData { response in
+            if response.error == nil {
+                print(response.result)
+                
+                if let data = response.data {
+                    DispatchQueue.main.async {
+                        UIView.animate(withDuration: 2.0) {
+                            cell.photoImageView.frame = cell.frame
+                        }
+                        cell.photoImageView.image = UIImage(data: data)
+                    }
+                }
             }
         }
         
@@ -165,7 +180,7 @@ extension MarsRoverPhotoViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath)
         let marsRoverPhotoInformationController = MarsRoverPhotoInformationViewController()
-      
+        
         ImageLoader.shared.loadImageFromData(url: arrayOfImageUrl[indexPath.row]) { image in
             DispatchQueue.main.async {
                 marsRoverPhotoInformationController.marsRoverPhotoInformationControllerView.photoImage.image = image
