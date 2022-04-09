@@ -94,6 +94,7 @@ class MarsRoverViewCell: UITableViewCell {
     //MARK: - Life Cycle
     override func layoutSubviews() {
         super.layoutSubviews()
+        customMarsRoverView.layoutIfNeeded()
         gradientLayer.frame = customMarsRoverView.bounds
     }
     

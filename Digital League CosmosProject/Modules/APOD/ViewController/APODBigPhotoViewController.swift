@@ -23,3 +23,11 @@ class APODBigPhotoViewController: UIViewController {
     }
     
 }
+
+//MARK: - UIScrollViewDelegate
+extension APODBigPhotoControllerView: UIScrollViewDelegate {
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return photoImageView
+    }
+
+}

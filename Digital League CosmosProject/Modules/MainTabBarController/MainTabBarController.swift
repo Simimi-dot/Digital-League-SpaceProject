@@ -10,7 +10,7 @@ import UIKit
 class MainTabBarController: UITabBarController {
     //MARK: - Prperties
     private let mainGalaxiesController = UINavigationController(rootViewController: MainGalaxiesViewController())
-    private let mainSolarSystemController = UINavigationController(rootViewController: MainSolarSystemViewController())
+    private let tableViewSolarSystemViewController = UINavigationController(rootViewController: TableViewSolarSystemViewController())
     private let mainMarsRoverController = UINavigationController(rootViewController: MainMarsRoverViewController())
     private let apodController = UINavigationController(rootViewController: APODViewController())
     
@@ -19,7 +19,7 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
 
         self.setViewControllers(
-            [mainGalaxiesController, mainSolarSystemController, mainMarsRoverController, apodController],
+            [mainGalaxiesController, tableViewSolarSystemViewController, mainMarsRoverController, apodController],
                                 animated: true)
         
         customizeTabBar()
@@ -30,7 +30,7 @@ class MainTabBarController: UITabBarController {
     //MARK: - Methods
     private func customizeTabBar() {
         mainGalaxiesController.title = "Galaxies"
-        mainSolarSystemController.title = "Solar System"
+        tableViewSolarSystemViewController.title = "Solar System"
         mainMarsRoverController.title = "Mars Rover"
         apodController.title = "APOD"
         

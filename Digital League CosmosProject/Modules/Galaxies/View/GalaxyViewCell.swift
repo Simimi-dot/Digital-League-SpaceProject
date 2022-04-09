@@ -9,7 +9,7 @@ import UIKit
 
 class GalaxyViewCell: UITableViewCell {
     //MARK: - Properties
-    private lazy var customGalaxyView: UIView = {
+    lazy var customGalaxyView: UIView = {
         var view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 12
@@ -83,7 +83,7 @@ class GalaxyViewCell: UITableViewCell {
     }()
     
     private lazy var informationView: UIView = {
-       var view = UIView()
+        var view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 12
         
@@ -103,6 +103,7 @@ class GalaxyViewCell: UITableViewCell {
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
         label.textAlignment = .center
+        label.numberOfLines = 2
         return label
     }()
     
@@ -115,17 +116,8 @@ class GalaxyViewCell: UITableViewCell {
         return label
     }()
     
-//    lazy var toPlanetsButton: UIButton = {
-//       let button = UIButton()
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        button.backgroundColor = .systemBlue
-//        button.setTitleColor(.white, for: .normal)
-//        button.setTitle("КНОПКА", for: .normal)
-//        return button
-//    }()
-    
     // Gradient Layer
-    private lazy var customGalaxyViewGradientLayer: CAGradientLayer = {
+    lazy var customGalaxyViewGradientLayer: CAGradientLayer = {
         var gradient = CAGradientLayer()
         gradient.colors = [
             UIColor(red: 97/255.0, green: 184/255.0, blue: 255/255.0, alpha: 0.6).cgColor,
@@ -137,7 +129,6 @@ class GalaxyViewCell: UITableViewCell {
         return gradient
     }()
     
-    
     private lazy var informationViewGradentLayer: CAGradientLayer = {
         var gradient = CAGradientLayer()
         gradient.colors = [
@@ -147,6 +138,7 @@ class GalaxyViewCell: UITableViewCell {
         gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
         gradient.endPoint = CGPoint(x: 1, y: 1)
         gradient.cornerRadius = 12
+        
         return gradient
     }()
     
@@ -160,6 +152,8 @@ class GalaxyViewCell: UITableViewCell {
         informationViewGradentLayer.frame = informationView.bounds
         customGalaxyViewGradientLayer.frame = customGalaxyView.bounds
         
+        print(#line, #function)
+        
     }
     
     //MARK: - Init
@@ -171,6 +165,12 @@ class GalaxyViewCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+    
+    //MARK: - Methods
+    @objc
+    func toggleButton(button: UIButton) {
+        button.isSelected = !button.isSelected
     }
     
 }
@@ -193,8 +193,6 @@ extension GalaxyViewCell: ConfigureViewProtocol {
         informationView.layer.addSublayer(informationViewGradentLayer)
         informationView.addSubview(informationTitleLabel)
         informationView.addSubview(informationLabel)
-        
-//        customGalaxyView.addSubview(toPlanetsButton)
         
         NSLayoutConstraint.activate([
             customGalaxyView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
@@ -246,15 +244,7 @@ extension GalaxyViewCell: ConfigureViewProtocol {
             informationLabel.leadingAnchor.constraint(equalTo: informationView.leadingAnchor, constant: 20),
             informationLabel.trailingAnchor.constraint(equalTo: informationView.trailingAnchor, constant: -20),
             informationLabel.bottomAnchor.constraint(equalTo: informationView.bottomAnchor, constant: -20),
-            
-//            toPlanetsButton.topAnchor.constraint(equalTo: informationView.bottomAnchor, constant: 20),
-//            toPlanetsButton.leadingAnchor.constraint(equalTo: allGalaxyContentView.leadingAnchor, constant: 20),
-//            toPlanetsButton.trailingAnchor.constraint(equalTo: allGalaxyContentView.trailingAnchor, constant: -20),
-//            toPlanetsButton.bottomAnchor.constraint(equalTo: allGalaxyContentView.bottomAnchor, constant: -20)
         ])
     }
     
 }
-
-
-

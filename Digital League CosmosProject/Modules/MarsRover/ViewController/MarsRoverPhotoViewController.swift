@@ -148,7 +148,7 @@ extension MarsRoverPhotoViewController: UICollectionViewDataSource {
         
         UIView.animate(withDuration: 2.0) {
             cell.photoImageView.frame = cell.frame
-        }
+        }   
         cell.photoImageView.af.setImage(withURL: arrayOfImageUrl[indexPath.row])
         
         return cell

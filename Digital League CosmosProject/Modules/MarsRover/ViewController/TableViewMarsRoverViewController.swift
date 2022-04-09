@@ -19,7 +19,7 @@ class TableViewMarsRoverViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.estimatedRowHeight = 300
+//        tableView.estimatedRowHeight = 300
         tableView.rowHeight = UITableView.automaticDimension
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none

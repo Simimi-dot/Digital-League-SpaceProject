@@ -74,7 +74,9 @@ class APODViewController: UIViewController {
             self.secondApodImageUrl = url
             
             guard let url = self.secondApodImageUrl else { return }
-            self.apodControllerView.pictureOfTheDayImageView.af.setImage(withURL: url)
+            ImageLoader.shared.loadImageFromData(url: url) { image in
+                self.apodControllerView.pictureOfTheDayImageView.image = image
+            }
             
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
@@ -107,7 +109,9 @@ class APODViewController: UIViewController {
         let apodPhotoController = APODBigPhotoViewController()
         
         guard let url = secondApodImageUrl else { return }
-        apodPhotoController.apodPhotoControllerView.photoImageView.af.setImage(withURL: url)
+        ImageLoader.shared.loadImageFromData(url: url) { image in
+            apodPhotoController.apodPhotoControllerView.photoImageView.image = image
+        }
 
         navigationController?.pushViewController(apodPhotoController, animated: true)
     }

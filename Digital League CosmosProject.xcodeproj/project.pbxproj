@@ -40,6 +40,9 @@
 		0675A1FC27F1F82200579AA2 /* APODNetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0675A1FB27F1F82200579AA2 /* APODNetworkManagerProtocol.swift */; };
 		0675A1FE27F1FFE900579AA2 /* APODBigPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0675A1FD27F1FFE900579AA2 /* APODBigPhotoViewController.swift */; };
 		0675A20027F2001D00579AA2 /* APODBigPhotoControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0675A1FF27F2001D00579AA2 /* APODBigPhotoControllerView.swift */; };
+		0685315F2801E1E900C2CE5A /* FavoriteGalaxies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0685315D2801E1E900C2CE5A /* FavoriteGalaxies.xcdatamodeld */; };
+		068531612802309500C2CE5A /* SolarSystemNewPlanetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068531602802309500C2CE5A /* SolarSystemNewPlanetView.swift */; };
+		068531632802363500C2CE5A /* SolarSystemNewPlanetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068531622802363500C2CE5A /* SolarSystemNewPlanetViewController.swift */; };
 		069BC16A27ECC42E0049BE65 /* SolarSystemViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069BC16927ECC42E0049BE65 /* SolarSystemViewHeader.swift */; };
 		06A30DB127F45832005759D7 /* APODDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A30DB027F45832005759D7 /* APODDataFetcher.swift */; };
 		06A30DB627F48713005759D7 /* MarsRoverNetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A30DB527F48713005759D7 /* MarsRoverNetworkDataFetcher.swift */; };
@@ -65,7 +68,6 @@
 		06D2AEB827F723AE006E00D4 /* MainGalaxiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D2AEB727F723AE006E00D4 /* MainGalaxiesViewController.swift */; };
 		06D2AEBA27F724CB006E00D4 /* TableViewGalaxiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D2AEB927F724CB006E00D4 /* TableViewGalaxiesViewController.swift */; };
 		06D2AEC627F73FAC006E00D4 /* TableViewGalaxiesViewController+ConfigureViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D2AEC527F73FAC006E00D4 /* TableViewGalaxiesViewController+ConfigureViewProtocol.swift */; };
-		06D2AECC27F7470D006E00D4 /* MainSolarSystemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D2AECB27F7470D006E00D4 /* MainSolarSystemViewController.swift */; };
 		06D2AECE27F7493C006E00D4 /* TableViewSolarSystemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D2AECD27F7493C006E00D4 /* TableViewSolarSystemViewController.swift */; };
 		06D2AED427F7558B006E00D4 /* TableViewSolarSystemViewController+ConfigureViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D2AED327F7558B006E00D4 /* TableViewSolarSystemViewController+ConfigureViewProtocol.swift */; };
 		A515243C0754EDADBDB307C3 /* Pods_Digital_League_CosmosProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF6B24F4F35EC2A215845A8C /* Pods_Digital_League_CosmosProject.framework */; };
@@ -106,6 +108,9 @@
 		0675A1FB27F1F82200579AA2 /* APODNetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODNetworkManagerProtocol.swift; sourceTree = "<group>"; };
 		0675A1FD27F1FFE900579AA2 /* APODBigPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODBigPhotoViewController.swift; sourceTree = "<group>"; };
 		0675A1FF27F2001D00579AA2 /* APODBigPhotoControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODBigPhotoControllerView.swift; sourceTree = "<group>"; };
+		0685315E2801E1E900C2CE5A /* FavoriteGalaxies.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteGalaxies.xcdatamodel; sourceTree = "<group>"; };
+		068531602802309500C2CE5A /* SolarSystemNewPlanetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystemNewPlanetView.swift; sourceTree = "<group>"; };
+		068531622802363500C2CE5A /* SolarSystemNewPlanetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystemNewPlanetViewController.swift; sourceTree = "<group>"; };
 		069BC16927ECC42E0049BE65 /* SolarSystemViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystemViewHeader.swift; sourceTree = "<group>"; };
 		06A30DB027F45832005759D7 /* APODDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODDataFetcher.swift; sourceTree = "<group>"; };
 		06A30DB527F48713005759D7 /* MarsRoverNetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsRoverNetworkDataFetcher.swift; sourceTree = "<group>"; };
@@ -133,7 +138,6 @@
 		06D2AEB727F723AE006E00D4 /* MainGalaxiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGalaxiesViewController.swift; sourceTree = "<group>"; };
 		06D2AEB927F724CB006E00D4 /* TableViewGalaxiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewGalaxiesViewController.swift; sourceTree = "<group>"; };
 		06D2AEC527F73FAC006E00D4 /* TableViewGalaxiesViewController+ConfigureViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewGalaxiesViewController+ConfigureViewProtocol.swift"; sourceTree = "<group>"; };
-		06D2AECB27F7470D006E00D4 /* MainSolarSystemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSolarSystemViewController.swift; sourceTree = "<group>"; };
 		06D2AECD27F7493C006E00D4 /* TableViewSolarSystemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSolarSystemViewController.swift; sourceTree = "<group>"; };
 		06D2AED327F7558B006E00D4 /* TableViewSolarSystemViewController+ConfigureViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewSolarSystemViewController+ConfigureViewProtocol.swift"; sourceTree = "<group>"; };
 		BF6B24F4F35EC2A215845A8C /* Pods_Digital_League_CosmosProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Digital_League_CosmosProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +170,7 @@
 		063C862D27F9F3750061548D /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				0685315D2801E1E900C2CE5A /* FavoriteGalaxies.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -303,6 +308,7 @@
 		0681566E27FF52A700FEE810 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				068531602802309500C2CE5A /* SolarSystemNewPlanetView.swift */,
 				06D1B88727E4FEA3000CF26F /* SolarSystemViewCell.swift */,
 				069BC16927ECC42E0049BE65 /* SolarSystemViewHeader.swift */,
 				06D1B89D27E60F01000CF26F /* SolarSystemPlanetInformationControllerView.swift */,
@@ -313,8 +319,8 @@
 		0681566F27FF52AC00FEE810 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				06D2AECB27F7470D006E00D4 /* MainSolarSystemViewController.swift */,
 				06D2AECD27F7493C006E00D4 /* TableViewSolarSystemViewController.swift */,
+				068531622802363500C2CE5A /* SolarSystemNewPlanetViewController.swift */,
 				0617EC2D27F86BBC0005BDFA /* SolarSystemHeaderController.swift */,
 				0650351127F8C6BA005C70AF /* PlanetInformationController.swift */,
 				06D1B89B27E60327000CF26F /* SolarSystemPlanetInformationViewController.swift */,
@@ -557,7 +563,6 @@
 				01F80DAA885ABD11D318EEB9 /* Pods-Digital League CosmosProject.debug.xcconfig */,
 				E100A3964D51F06698455C4F /* Pods-Digital League CosmosProject.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -678,6 +683,7 @@
 				06D1B87B27E4E2F4000CF26F /* NavigationBarAppearance.swift in Sources */,
 				0617EC3A27F88BCA0005BDFA /* SpaceSystemNameDataSource.swift in Sources */,
 				06259C3627F0BDAA00F8DE4B /* MarsRoverUrlDataSource.swift in Sources */,
+				068531612802309500C2CE5A /* SolarSystemNewPlanetView.swift in Sources */,
 				06D1B88227E4EA68000CF26F /* ConfigureViewProtocol.swift in Sources */,
 				0675A1FC27F1F82200579AA2 /* APODNetworkManagerProtocol.swift in Sources */,
 				0675A1FE27F1FFE900579AA2 /* APODBigPhotoViewController.swift in Sources */,
@@ -689,7 +695,6 @@
 				06D1B88E27E5C833000CF26F /* MarsRoverViewCell.swift in Sources */,
 				06605CCD27E78FBA00CCD0F5 /* MarsRoverNetworkModel.swift in Sources */,
 				06259C3827F0BE6200F8DE4B /* GalaxyInformationModel.swift in Sources */,
-				06D2AECC27F7470D006E00D4 /* MainSolarSystemViewController.swift in Sources */,
 				0650350E27F8C376005C70AF /* SolarSystemPlanetInformationModel.swift in Sources */,
 				06D2AECE27F7493C006E00D4 /* TableViewSolarSystemViewController.swift in Sources */,
 				0617EC2E27F86BBC0005BDFA /* SolarSystemHeaderController.swift in Sources */,
@@ -714,6 +719,8 @@
 				06571F7627EE5B3C0040774F /* MarsRoverUrlEnum.swift in Sources */,
 				0617EC3827F88BAC0005BDFA /* PlanetDataSource.swift in Sources */,
 				06A30DB627F48713005759D7 /* MarsRoverNetworkDataFetcher.swift in Sources */,
+				068531632802363500C2CE5A /* SolarSystemNewPlanetViewController.swift in Sources */,
+				0685315F2801E1E900C2CE5A /* FavoriteGalaxies.xcdatamodeld in Sources */,
 				0617EC2A27F8674E0005BDFA /* GalaxiesHeaderController.swift in Sources */,
 				06D017B02800A5290082BC34 /* ConfigureHeaderBackgroundProtocol.swift in Sources */,
 				06259C7B27F1E31900F8DE4B /* APODNetworkModel.swift in Sources */,
@@ -945,6 +952,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0685315D2801E1E900C2CE5A /* FavoriteGalaxies.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0685315E2801E1E900C2CE5A /* FavoriteGalaxies.xcdatamodel */,
+			);
+			currentVersion = 0685315E2801E1E900C2CE5A /* FavoriteGalaxies.xcdatamodel */;
+			path = FavoriteGalaxies.xcdatamodeld;
+			sourceTree = "<group>";
+			usesTabs = 0;
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 06D1B84D27E4B16F000CF26F /* Project object */;
 }

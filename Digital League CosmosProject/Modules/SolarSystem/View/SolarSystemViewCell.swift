@@ -45,7 +45,7 @@ class SolarSystemViewCell: UITableViewCell {
         label.text = "Название планеты"
         label.numberOfLines = 2
         label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 23, weight: .heavy)
+        label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         return label
     }()
     
@@ -102,6 +102,12 @@ extension SolarSystemViewCell: ConfigureViewProtocol {
         customSolarSystemView.addSubview(nameOfPlanetLabel)
         customSolarSystemView.addSubview(numberOfPlanetLabel)
         
+        let nameOfPlanetLeadingConstraint = nameOfPlanetLabel.leadingAnchor.constraint(equalTo: planetImageView.trailingAnchor, constant: 20)
+        nameOfPlanetLeadingConstraint.priority = .defaultLow
+        
+        let numberOfPlanetLeadingConstraint = numberOfPlanetLabel.leadingAnchor.constraint(equalTo: planetImageView.trailingAnchor, constant: 20)
+        numberOfPlanetLeadingConstraint.priority = .defaultLow
+        
         NSLayoutConstraint.activate([
             customSolarSystemView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
             customSolarSystemView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
@@ -112,16 +118,13 @@ extension SolarSystemViewCell: ConfigureViewProtocol {
             planetImageView.leadingAnchor.constraint(equalTo: customSolarSystemView.leadingAnchor, constant: 20),
             planetImageView.bottomAnchor.constraint(equalTo: customSolarSystemView.bottomAnchor, constant: -20),
             planetImageView.widthAnchor.constraint(equalToConstant: 160),
-            //planetImageView.heightAnchor.constraint(equalToConstant: 150),
             
             nameOfPlanetLabel.topAnchor.constraint(equalTo: planetImageView.topAnchor),
-            nameOfPlanetLabel.leadingAnchor.constraint(equalTo: planetImageView.trailingAnchor, constant: 20),
+            nameOfPlanetLeadingConstraint,
             nameOfPlanetLabel.trailingAnchor.constraint(equalTo: customSolarSystemView.trailingAnchor, constant: -20),
             
-            
-            numberOfPlanetLabel.leadingAnchor.constraint(equalTo: planetImageView.trailingAnchor, constant: 20),
+            numberOfPlanetLeadingConstraint,
             numberOfPlanetLabel.trailingAnchor.constraint(equalTo: customSolarSystemView.trailingAnchor, constant: -20),
-            //numberOfPlanetLabel.bottomAnchor.constraint(equalTo: customSolarSystemView.bottomAnchor, constant: -20),
             numberOfPlanetLabel.bottomAnchor.constraint(equalTo: planetImageView.bottomAnchor)
             
         ])

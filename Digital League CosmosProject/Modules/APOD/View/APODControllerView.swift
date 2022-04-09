@@ -9,6 +9,18 @@ import UIKit
 
 class APODControllerView: UIView {
     //MARK: - Properties
+    private lazy var pictureOfTheDayScrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+
+    private lazy var allContentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     private lazy var pictureOfTheDayView: UIView = {
         var view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -23,7 +35,7 @@ class APODControllerView: UIView {
     }()
     
     lazy var toBigPictureButton: UIButton = {
-       var button = UIButton()
+        var button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("", for: .normal)
         button.backgroundColor = .clear
@@ -32,7 +44,7 @@ class APODControllerView: UIView {
     }()
     
     lazy var dateLabelView: UIView = {
-       var view = UIView()
+        var view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 12
         view.layer.borderWidth = 2
@@ -66,7 +78,7 @@ class APODControllerView: UIView {
     }()
     
     lazy var activtyIndicator: UIActivityIndicatorView = {
-       var indicator = UIActivityIndicatorView()
+        var indicator = UIActivityIndicatorView()
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.color = .white
         indicator.startAnimating()
@@ -107,21 +119,38 @@ class APODControllerView: UIView {
 //MARK: - ConfigureViewProtocol
 extension APODControllerView: ConfigureViewProtocol {
     func configureView() {
-        addSubview(pictureOfTheDayView)
-        addSubview(dateLabelView)
+        addSubview(pictureOfTheDayScrollView)
+        pictureOfTheDayScrollView.addSubview(allContentView)
+        
+        allContentView.addSubview(pictureOfTheDayView)
+        allContentView.addSubview(dateLabelView)
         
         dateLabelView.layer.addSublayer(labelViewGradientLayer)
         dateLabelView.addSubview(dateLabel)
         
         pictureOfTheDayView.addSubview(pictureOfTheDayImageView)
         
-        addSubview(activtyIndicator)
-        addSubview(toBigPictureButton)
+        allContentView.addSubview(activtyIndicator)
+        allContentView.addSubview(toBigPictureButton)
         
         NSLayoutConstraint.activate([
-            pictureOfTheDayView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
-            pictureOfTheDayView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            pictureOfTheDayView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            pictureOfTheDayScrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            pictureOfTheDayScrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            pictureOfTheDayScrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            pictureOfTheDayScrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
+            allContentView.topAnchor.constraint(equalTo: pictureOfTheDayScrollView.topAnchor),
+            allContentView.leadingAnchor.constraint(equalTo: pictureOfTheDayScrollView.leadingAnchor),
+            allContentView.trailingAnchor.constraint(equalTo: pictureOfTheDayScrollView.trailingAnchor),
+            allContentView.bottomAnchor.constraint(equalTo: pictureOfTheDayScrollView.bottomAnchor),
+            allContentView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
+            allContentView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height),
+//            allContentView.widthAnchor.constraint(equalTo: pictureOfTheDayScrollView.widthAnchor),
+//            allContentView.heightAnchor.constraint(equalToConstant: 500),
+            
+            pictureOfTheDayView.topAnchor.constraint(equalTo: allContentView.topAnchor, constant: 20),
+            pictureOfTheDayView.leadingAnchor.constraint(equalTo: allContentView.leadingAnchor, constant: 20),
+            pictureOfTheDayView.trailingAnchor.constraint(equalTo: allContentView.trailingAnchor, constant: -20),
             pictureOfTheDayView.heightAnchor.constraint(equalToConstant: 300),
             
             pictureOfTheDayImageView.topAnchor.constraint(equalTo: pictureOfTheDayView.topAnchor),
@@ -135,16 +164,16 @@ extension APODControllerView: ConfigureViewProtocol {
             toBigPictureButton.bottomAnchor.constraint(equalTo: pictureOfTheDayView.bottomAnchor),
             
             dateLabelView.topAnchor.constraint(equalTo: pictureOfTheDayView.bottomAnchor, constant: 20),
-            dateLabelView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            dateLabelView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            dateLabelView.leadingAnchor.constraint(equalTo: allContentView.leadingAnchor, constant: 20),
+            dateLabelView.trailingAnchor.constraint(equalTo: allContentView.trailingAnchor, constant: -20),
             
             dateLabel.topAnchor.constraint(equalTo: dateLabelView.topAnchor, constant: 20),
             dateLabel.leadingAnchor.constraint(equalTo: dateLabelView.leadingAnchor, constant: 20),
             dateLabel.trailingAnchor.constraint(equalTo: dateLabelView.trailingAnchor, constant: -20),
             dateLabel.bottomAnchor.constraint(equalTo: dateLabelView.bottomAnchor, constant: -20),
             
-            activtyIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
-            activtyIndicator.centerYAnchor.constraint(equalTo: centerYAnchor)
+            activtyIndicator.centerXAnchor.constraint(equalTo: allContentView.centerXAnchor),
+            activtyIndicator.centerYAnchor.constraint(equalTo: allContentView.centerYAnchor)
         ])
     }
     

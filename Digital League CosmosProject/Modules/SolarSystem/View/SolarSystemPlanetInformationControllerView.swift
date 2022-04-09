@@ -61,6 +61,7 @@ class SolarSystemPlanetInfromationControllerView: UIView {
         label.text = "Количество дней в году"
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
+        label.numberOfLines = 2
         return label
     }()
     

@@ -12,6 +12,9 @@ class APODBigPhotoControllerView: UIView {
     private lazy var photoScrollView: UIScrollView = {
         var scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.maximumZoomScale = 50
+        scrollView.minimumZoomScale = 1
+        scrollView.delegate = self
         return scrollView
     }()
     
@@ -24,6 +27,13 @@ class APODBigPhotoControllerView: UIView {
     lazy var photoImageView: UIImageView = {
         var image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
+        
+        image.layer.shadowColor = UIColor.black.cgColor
+        image.layer.shadowOpacity = 1
+        image.layer.shadowRadius = 10
+        image.layer.shadowOffset = CGSize(width: 0, height: 0)
+        image.layer.masksToBounds = false
+        
         return image
     }()
     
@@ -43,9 +53,10 @@ class APODBigPhotoControllerView: UIView {
 extension APODBigPhotoControllerView: ConfigureViewProtocol {
     func configureView() {
         addSubview(photoScrollView)
+        
         photoScrollView.addSubview(allContentView)
         allContentView.addSubview(photoImageView)
-        
+    
         NSLayoutConstraint.activate([
             photoScrollView.topAnchor.constraint(equalTo: topAnchor),
             photoScrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -56,13 +67,13 @@ extension APODBigPhotoControllerView: ConfigureViewProtocol {
             allContentView.leadingAnchor.constraint(equalTo: photoScrollView.leadingAnchor),
             allContentView.trailingAnchor.constraint(equalTo: photoScrollView.trailingAnchor),
             allContentView.bottomAnchor.constraint(equalTo: photoScrollView.bottomAnchor),
-            allContentView.heightAnchor.constraint(equalToConstant: 1500),
-            allContentView.widthAnchor.constraint(equalToConstant: 1500),
+            allContentView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
+            allContentView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height),
             
-            photoImageView.topAnchor.constraint(equalTo: allContentView.topAnchor),
-            photoImageView.leadingAnchor.constraint(equalTo: allContentView.leadingAnchor),
-            photoImageView.trailingAnchor.constraint(equalTo: allContentView.trailingAnchor),
-            photoImageView.bottomAnchor.constraint(equalTo: allContentView.bottomAnchor)
+            photoImageView.centerXAnchor.constraint(equalTo: allContentView.centerXAnchor),
+            photoImageView.topAnchor.constraint(equalTo: allContentView.topAnchor, constant: 200),
+            photoImageView.heightAnchor.constraint(equalToConstant: 200),
+            photoImageView.widthAnchor.constraint(equalTo: allContentView.widthAnchor)
         ])
     }
     

@@ -9,6 +9,8 @@ import UIKit
 
 class TableViewSolarSystemViewController: UIViewController {
     //MARK: - Properties
+    private let navigationBarAppearance = NavigationBarAppearance()
+    
     private let solarSystemCellId = "solarSystemCellId"
     
     private let arrayOfPlanets = PlanetDataSource.shared.listOfPlanets()
@@ -33,13 +35,55 @@ class TableViewSolarSystemViewController: UIViewController {
     }()
     
     //MARK: - Life Cycle
+    override func loadView() {
+        super.loadView()
+        navigationItem.largeTitleDisplayMode = .always
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = true
+        title = "Solar System"
+        
         configureView()
+        
+        custmizeNavigationBarAppearance()
+        configureBarButtonItem()
+        
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.view.alpha = 1
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        UIView.animate(withDuration: 0.25) {
+            self.view.alpha = 0
+        }
+    }
+    
+    //MARK: - Methods
+    private func custmizeNavigationBarAppearance() {
+        navigationController?.navigationBar.standardAppearance = navigationBarAppearance.customizeNavigationBarAppearance()
+        navigationController?.navigationBar.scrollEdgeAppearance = navigationBarAppearance.customizeNavigationBarAppearance()
+        navigationController?.navigationBar.compactAppearance = navigationBarAppearance.customizeNavigationBarAppearance()
+    }
+    
+    private func configureBarButtonItem() {
+        let someButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showModalViewController))
+        someButton.tintColor = .white
+        
+        navigationItem.rightBarButtonItem = someButton
+    }
+    
+    @objc
+    private func showModalViewController() {
+        navigationController?.present(SolarSystemNewPlanetViewController(), animated: true, completion: nil)
+    }
+    
 }
-
 //MARK: - UITableViewDataSource
 extension TableViewSolarSystemViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -72,7 +116,7 @@ extension TableViewSolarSystemViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      
+        
         let planetInformationView =
         PlanetInformationController(planetModel: arrayOfPlanetsInformation[indexPath.row]).dataToView()
         
@@ -90,3 +134,4 @@ extension TableViewSolarSystemViewController: UITableViewDelegate {
     }
     
 }
+

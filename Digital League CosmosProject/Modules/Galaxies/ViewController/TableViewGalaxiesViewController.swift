@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class TableViewGalaxiesViewController: UIViewController {
     //MARK: - Properties
@@ -13,8 +14,6 @@ class TableViewGalaxiesViewController: UIViewController {
     
     private let arrayOfGalaxiesInformation = GalaxyInformationDataSource.shared.listOfGalaxiesInformation()
     private let arrayOfGalaxiesNames = GalaxyNameDataSource.shared.listOfGalaxiesNames()
-    
-    private let galaxyControllerViewCell = GalaxyViewCell()
     
     lazy var galaxiesTableView: UITableView = {
         let tableView = UITableView()
@@ -24,21 +23,22 @@ class TableViewGalaxiesViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.rowHeight = 500
         tableView.sectionHeaderHeight = 100
-        //tableView.rowHeight = UITableView.automaticDimension
-        //tableView.estimatedRowHeight = 200
+        //        tableView.rowHeight = UITableView.automaticDimension
+        //        tableView.estimatedRowHeight = 1000
         tableView.backgroundColor = .clear
         
         tableView.register(GalaxyViewCell.self, forCellReuseIdentifier: cellId)
         
         return tableView
     }()
-
+    
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
+        
     }
-    
+
 }
 
 //MARK: - UITableViewDataSource
@@ -50,7 +50,7 @@ extension TableViewGalaxiesViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         arrayOfGalaxiesNames.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? GalaxyViewCell else { return UITableViewCell()}
         

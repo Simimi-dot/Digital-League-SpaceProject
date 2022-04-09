@@ -9,6 +9,18 @@ import UIKit
 
 class MarsRoverPhotoInformationControllerView: UIView {
     //MARK: - Properties
+    private let planetInformationScrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+    
+    private let allContentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     private lazy var forImageView: UIView = {
         var view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -123,7 +135,7 @@ class MarsRoverPhotoInformationControllerView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureView()
-
+        
     }
     
     required init?(coder: NSCoder) {
@@ -135,8 +147,11 @@ class MarsRoverPhotoInformationControllerView: UIView {
 //MARK: - ConfigureViewProtocol
 extension MarsRoverPhotoInformationControllerView: ConfigureViewProtocol {
     func configureView() {
-        addSubview(forImageView)
-        addSubview(informationView)
+        addSubview(planetInformationScrollView)
+        planetInformationScrollView.addSubview(allContentView)
+        
+        allContentView.addSubview(forImageView)
+        allContentView.addSubview(informationView)
         informationView.layer.addSublayer(informationViewGradentLayer)
         
         forImageView.addSubview(photoImage)
@@ -148,9 +163,23 @@ extension MarsRoverPhotoInformationControllerView: ConfigureViewProtocol {
         informationView.addSubview(fullNameСameraLabel)
         
         NSLayoutConstraint.activate([
-            forImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
-            forImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            forImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            planetInformationScrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            planetInformationScrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            planetInformationScrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            planetInformationScrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
+            allContentView.topAnchor.constraint(equalTo: planetInformationScrollView.topAnchor),
+            allContentView.leadingAnchor.constraint(equalTo: planetInformationScrollView.leadingAnchor),
+            allContentView.trailingAnchor.constraint(equalTo: planetInformationScrollView.trailingAnchor),
+            allContentView.bottomAnchor.constraint(equalTo: planetInformationScrollView.bottomAnchor),
+            allContentView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
+            allContentView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height),
+//            allContentView.widthAnchor.constraint(equalTo: planetInformationScrollView.widthAnchor),
+//            allContentView.heightAnchor.constraint(equalToConstant: 700),
+            
+            forImageView.topAnchor.constraint(equalTo: allContentView.topAnchor, constant: 20),
+            forImageView.leadingAnchor.constraint(equalTo: allContentView.leadingAnchor, constant: 20),
+            forImageView.trailingAnchor.constraint(equalTo: allContentView.trailingAnchor, constant: -20),
             forImageView.heightAnchor.constraint(equalToConstant: 300),
             
             photoImage.topAnchor.constraint(equalTo: forImageView.topAnchor),
@@ -159,8 +188,8 @@ extension MarsRoverPhotoInformationControllerView: ConfigureViewProtocol {
             photoImage.bottomAnchor.constraint(equalTo: forImageView.bottomAnchor),
             
             informationView.topAnchor.constraint(equalTo: forImageView.bottomAnchor, constant: 20),
-            informationView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            informationView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            informationView.leadingAnchor.constraint(equalTo: allContentView.leadingAnchor, constant: 20),
+            informationView.trailingAnchor.constraint(equalTo: allContentView.trailingAnchor, constant: -20),
             
             earthDateTitleLabel.topAnchor.constraint(equalTo: informationView.topAnchor, constant: 20),
             earthDateTitleLabel.leadingAnchor.constraint(equalTo: informationView.leadingAnchor, constant: 20),
