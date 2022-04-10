@@ -57,8 +57,8 @@ class NewNightSkyView: UIView {
         textField.translatesAutoresizingMaskIntoConstraints =  false
         textField.placeholder = "Добавить описание"
         textField.layer.cornerRadius = 4
-        textField.backgroundColor = .white
         textField.borderStyle = .roundedRect
+        textField.textColor = .black
         
         return textField
     }()
