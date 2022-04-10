@@ -127,4 +127,23 @@ extension TableViewNightSkyViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = .clear
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: nil) { _, _, complete in
+            self.context.delete(self.nightSkyPhotos[indexPath.row])
+            self.nightSkyPhotos.remove(at: indexPath.row)
+            
+            if self.context.hasChanges {
+                do {
+                    try self.context.save()
+                    self.nightSkyTableView.deleteRows(at: [indexPath], with: .automatic)
+                    self.nightSkyTableView.reloadData()
+                } catch let error {
+                    print(error)
+                }
+            }
+            
+        }
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
 }

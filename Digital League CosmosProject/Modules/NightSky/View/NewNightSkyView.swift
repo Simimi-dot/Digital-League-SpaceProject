@@ -80,6 +80,23 @@ class NewNightSkyView: UIView {
         return button
     }()
     
+    lazy var backButton: UIButton = {
+       var button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.cornerRadius = 12
+        button.backgroundColor = .white
+        button.setTitle("Вернуться", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOpacity = 1
+        button.layer.shadowRadius = 10
+        button.layer.shadowOffset = CGSize(width: 0, height: 0)
+        button.layer.masksToBounds = false
+        
+        return button
+    }()
+    
     private lazy var gradientLayer: CAGradientLayer = {
         var gradient = CAGradientLayer()
         gradient.colors = [
@@ -132,6 +149,7 @@ extension NewNightSkyView: ConfigureViewProtocol {
         
         allContentView.addSubview(newPhotoTextField)
         allContentView.addSubview(newPlanetButton)
+        allContentView.addSubview(backButton)
         
         NSLayoutConstraint.activate([
             newPlanetScrollView.topAnchor.constraint(equalTo: topAnchor),
@@ -168,7 +186,12 @@ extension NewNightSkyView: ConfigureViewProtocol {
             newPlanetButton.topAnchor.constraint(equalTo: newPhotoTextField.bottomAnchor, constant: 50),
             newPlanetButton.leadingAnchor.constraint(equalTo: allContentView.leadingAnchor, constant: 20),
             newPlanetButton.trailingAnchor.constraint(equalTo: allContentView.trailingAnchor, constant: -20),
-            newPlanetButton.heightAnchor.constraint(equalToConstant: 50)
+            newPlanetButton.heightAnchor.constraint(equalToConstant: 50),
+            
+            backButton.topAnchor.constraint(equalTo: newPlanetButton.bottomAnchor, constant: 20),
+            backButton.leadingAnchor.constraint(equalTo: allContentView.leadingAnchor, constant: 20),
+            backButton.trailingAnchor.constraint(equalTo: allContentView.trailingAnchor, constant: -20),
+            backButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     

@@ -25,6 +25,7 @@ class NewNightSkyViewController: UIViewController {
         
         customView.photoButton.addTarget(self, action: #selector(takePhoto), for: .touchUpInside)
         customView.newPlanetButton.addTarget(self, action: #selector(saveNewNightSkyPhoto), for: .touchUpInside)
+        customView.backButton.addTarget(self, action: #selector(moveBack), for: .touchUpInside)
     }
     
     //MARK: - Methods
@@ -68,6 +69,11 @@ class NewNightSkyViewController: UIViewController {
     @objc
     private func takePhoto() {
         takePhotoAlertController()
+    }
+    
+    @objc
+    func moveBack() {
+        dismiss(animated: true, completion: nil)
     }
     
 }
