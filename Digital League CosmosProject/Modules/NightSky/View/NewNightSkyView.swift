@@ -162,7 +162,7 @@ extension NewNightSkyView: ConfigureViewProtocol {
             allContentView.trailingAnchor.constraint(equalTo: newPlanetScrollView.trailingAnchor),
             allContentView.bottomAnchor.constraint(equalTo: newPlanetScrollView.bottomAnchor),
             allContentView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
-            allContentView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height),
+            allContentView.heightAnchor.constraint(equalToConstant: 1000),
             
             forImageView.topAnchor.constraint(equalTo: allContentView.topAnchor, constant: 100),
             forImageView.leadingAnchor.constraint(equalTo: allContentView.leadingAnchor, constant: 50),
