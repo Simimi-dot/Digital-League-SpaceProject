@@ -26,7 +26,6 @@ class MarsRoverPhotoViewController: UIViewController {
         flow.scrollDirection = .vertical
         flow.minimumInteritemSpacing = 2
         flow.minimumLineSpacing = 3
-        //flow.itemSize = CGSize(width: 80, height: 80)
         flow.itemSize = CGSize(width: (view.frame.size.width/3) - 4, height: (view.frame.size.width/3) - 4)
         return flow
     }()
@@ -159,7 +158,6 @@ extension MarsRoverPhotoViewController: UICollectionViewDataSource {
 //MARK: - UICollectionViewDelegate
 extension MarsRoverPhotoViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
         let marsRoverPhotoInformationController = MarsRoverPhotoInformationViewController()
         
         marsRoverPhotoInformationController

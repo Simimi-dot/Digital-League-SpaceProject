@@ -116,7 +116,6 @@ class GalaxyViewCell: UITableViewCell {
         return label
     }()
     
-    // Gradient Layer
     lazy var customGalaxyViewGradientLayer: CAGradientLayer = {
         var gradient = CAGradientLayer()
         gradient.colors = [
@@ -151,8 +150,6 @@ class GalaxyViewCell: UITableViewCell {
         
         informationViewGradentLayer.frame = informationView.bounds
         customGalaxyViewGradientLayer.frame = customGalaxyView.bounds
-        
-        print(#line, #function)
         
     }
     

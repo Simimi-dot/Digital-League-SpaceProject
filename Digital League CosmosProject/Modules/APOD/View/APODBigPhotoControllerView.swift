@@ -71,8 +71,8 @@ extension APODBigPhotoControllerView: ConfigureViewProtocol {
             allContentView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height),
             
             photoImageView.centerXAnchor.constraint(equalTo: allContentView.centerXAnchor),
-            photoImageView.topAnchor.constraint(equalTo: allContentView.topAnchor, constant: 200),
-            photoImageView.heightAnchor.constraint(equalToConstant: 200),
+            photoImageView.topAnchor.constraint(equalTo: allContentView.topAnchor, constant: 100),
+            photoImageView.heightAnchor.constraint(equalToConstant: 400),
             photoImageView.widthAnchor.constraint(equalTo: allContentView.widthAnchor)
         ])
     }

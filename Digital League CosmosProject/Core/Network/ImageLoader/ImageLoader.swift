@@ -22,7 +22,6 @@ extension ImageLoader {
     func loadImageFromData(url: URL, completion: @escaping (UIImage?) -> Void) {
         loadingQueue.async {
             if let image = self.imageCache.object(forKey: url.absoluteString as NSString) {
-                print("Используем кэш")
                 DispatchQueue.main.async {
                     completion(image)
                 }

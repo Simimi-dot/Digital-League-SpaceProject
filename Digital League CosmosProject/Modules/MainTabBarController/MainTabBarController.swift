@@ -13,13 +13,14 @@ class MainTabBarController: UITabBarController {
     private let tableViewSolarSystemViewController = UINavigationController(rootViewController: TableViewSolarSystemViewController())
     private let mainMarsRoverController = UINavigationController(rootViewController: MainMarsRoverViewController())
     private let apodController = UINavigationController(rootViewController: APODViewController())
+    private let nightSkyController = UINavigationController(rootViewController: TableViewNightSkyViewController())
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.setViewControllers(
-            [mainGalaxiesController, tableViewSolarSystemViewController, mainMarsRoverController, apodController],
+            [mainGalaxiesController, tableViewSolarSystemViewController, mainMarsRoverController, apodController, nightSkyController],
                                 animated: true)
         
         customizeTabBar()
@@ -33,6 +34,7 @@ class MainTabBarController: UITabBarController {
         tableViewSolarSystemViewController.title = "Solar System"
         mainMarsRoverController.title = "Mars Rover"
         apodController.title = "APOD"
+        nightSkyController.title = "Night Sky"
         
         tabBar.backgroundColor = .white
         tabBar.barTintColor = .white
@@ -44,7 +46,7 @@ class MainTabBarController: UITabBarController {
     private func customizeTabBarImage() {
         guard let items = tabBar.items else { return }
         
-        let arrayOfImages = ["Galaxy", "Planet", "MarsRover", "APOD"]
+        let arrayOfImages = ["Galaxy", "Planet", "MarsRover", "APOD", "NightSky"]
 
         for index in 0..<arrayOfImages.count {
             items[index].image = UIImage(named: arrayOfImages[index])

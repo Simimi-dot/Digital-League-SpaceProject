@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class TableViewSolarSystemViewController: UIViewController {
     //MARK: - Properties
@@ -17,13 +18,12 @@ class TableViewSolarSystemViewController: UIViewController {
     private let arrayOfSpaceSystemNames = SpaceSystemNameDataSource.shared.listOfSpaceSystem()
     
     private let arrayOfPlanetsInformation = SolarSystemPlanetInformationDataSource.shared.listOfPlanetsInformation()
-    
+
     lazy var solarSystemTableView: UITableView = {
         var tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
         tableView.dataSource = self
-        //tableView.rowHeight = UITableView.automaticDimension
         tableView.rowHeight = 250
         tableView.sectionHeaderHeight = 100
         tableView.backgroundColor = .clear
@@ -46,10 +46,8 @@ class TableViewSolarSystemViewController: UIViewController {
         title = "Solar System"
         
         configureView()
-        
         custmizeNavigationBarAppearance()
-        configureBarButtonItem()
-        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,18 +67,6 @@ class TableViewSolarSystemViewController: UIViewController {
         navigationController?.navigationBar.standardAppearance = navigationBarAppearance.customizeNavigationBarAppearance()
         navigationController?.navigationBar.scrollEdgeAppearance = navigationBarAppearance.customizeNavigationBarAppearance()
         navigationController?.navigationBar.compactAppearance = navigationBarAppearance.customizeNavigationBarAppearance()
-    }
-    
-    private func configureBarButtonItem() {
-        let someButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showModalViewController))
-        someButton.tintColor = .white
-        
-        navigationItem.rightBarButtonItem = someButton
-    }
-    
-    @objc
-    private func showModalViewController() {
-        navigationController?.present(SolarSystemNewPlanetViewController(), animated: true, completion: nil)
     }
     
 }

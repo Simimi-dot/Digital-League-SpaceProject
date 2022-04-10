@@ -174,8 +174,6 @@ extension MarsRoverPhotoInformationControllerView: ConfigureViewProtocol {
             allContentView.bottomAnchor.constraint(equalTo: planetInformationScrollView.bottomAnchor),
             allContentView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
             allContentView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height),
-//            allContentView.widthAnchor.constraint(equalTo: planetInformationScrollView.widthAnchor),
-//            allContentView.heightAnchor.constraint(equalToConstant: 700),
             
             forImageView.topAnchor.constraint(equalTo: allContentView.topAnchor, constant: 20),
             forImageView.leadingAnchor.constraint(equalTo: allContentView.leadingAnchor, constant: 20),

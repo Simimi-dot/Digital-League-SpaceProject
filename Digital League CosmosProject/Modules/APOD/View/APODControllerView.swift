@@ -145,8 +145,6 @@ extension APODControllerView: ConfigureViewProtocol {
             allContentView.bottomAnchor.constraint(equalTo: pictureOfTheDayScrollView.bottomAnchor),
             allContentView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
             allContentView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height),
-//            allContentView.widthAnchor.constraint(equalTo: pictureOfTheDayScrollView.widthAnchor),
-//            allContentView.heightAnchor.constraint(equalToConstant: 500),
             
             pictureOfTheDayView.topAnchor.constraint(equalTo: allContentView.topAnchor, constant: 20),
             pictureOfTheDayView.leadingAnchor.constraint(equalTo: allContentView.leadingAnchor, constant: 20),
